@@ -3,6 +3,12 @@
 using namespace divalg;
 using namespace std;
 
+void test_copy_constructor() {
+  quaternion<int> p(1,2,3,4);
+  quaternion<int> q(p);
+  static_assert(p == q, "Copy constructor is incorrect");
+}
+
 void test_quaternion_ints() {
   quaternion<int> q(1,2,3,4);
 }

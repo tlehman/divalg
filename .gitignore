@@ -1,17 +1,3 @@
-tlehman@mercury:~/src/divalg/test $ ls
-git: 'ls' is not a git command. See 'git --help'.
-
-The most similar command is
-        lg
-tlehman@mercury:~/src/divalg/test $ make clean
-bin
 lib
-~                                                                                                                                                                        
-~                                                                                                                                                                        
-~                                                                                                                                                                        
-~                                                                                                                                                                        
-~                                                                                                                                                                        
-~                                                                                                                                                                        
-~                                                                                                                                                                        
-~                                                                                                                                                                        
--- INSERT --                                                                                                                                           2,4           All
+bin
+.DS_Store

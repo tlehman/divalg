@@ -2,6 +2,7 @@
 
 namespace divalg {
   using std::ostream;
+  using std::string;
 
   template <class scalar>
   class quaternion {
@@ -12,10 +13,16 @@ namespace divalg {
       this->_c = c;
       this->_d = d;
     }
-    scalar a() { return _a; }
-    scalar b() { return _b; }
-    scalar c() { return _c; }
-    scalar d() { return _d; }
+
+    // Copy constructor
+    quaternion(const quaternion& q) {
+      quaternion(q.a(), q.b(), q.c(), q.d());
+    }
+
+    scalar a() const { return _a; }
+    scalar b() const { return _b; }
+    scalar c() const { return _c; }
+    scalar d() const { return _d; }
   private:
     scalar _a;
     scalar _b;
@@ -26,5 +33,14 @@ namespace divalg {
   template <class scalar>
   ostream& operator<<(const ostream& os, quaternion<scalar> q) {
     os << q.a();
+  }
+
+  template <class scalar>
+  bool operator==(const quaternion<scalar>& p,
+                  const quaternion<scalar>& q) {
+    return p.a() == q.a() &&
+      p.b() == q.b() &&
+      p.c() == q.c() &&
+      p.d() == q.d();
   }
 };
