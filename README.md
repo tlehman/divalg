@@ -7,5 +7,9 @@ There are only four [normed division algebras](https://en.wikipedia.org/wiki/Hur
 - ℍ: quaternions
 - 𝕆: octonions
 
-This library provides quaternions and octonions as regular types.
+This library provides quaternions and octonions as template classes 
 
+
+
+
+e₀	e₁	e₂	e₃	e₄	e₅	e₆	e₇	e₈	e₉
