@@ -1,6 +1,8 @@
 #include <iostream>
+#include <sstream>
 
 using std::ostream;
+using std::ostringstream;
 using std::string;
 
 template <class scalar>
@@ -19,6 +21,24 @@ public:
     }
   }
 
+  string term(int index) {
+    scalar c = coefficient(index);
+    string basis[7] = {"e₁", "e₂", "e₃", "e₄", "e₅", "e₆", "e₇"};
+    ostringstream retval;
+    if(c != 0) {
+      if(c == 1 && index == 0) {
+        retval << "1";
+      }
+      if(index > 0) {
+        retval << basis[index-1];
+        if(index < 7) {
+          retval << " + ";
+        }
+      }
+    }
+    return retval.str();
+  }
+
   scalar coefficient(int index) const {
     return coefficients[index];
   }
@@ -29,14 +49,14 @@ protected:
 
 template <class scalar>
 ostream& operator<<(ostream& os, octonion<scalar> q) {
-  os << q.coefficient(0) << " + "
-     << q.coefficient(1) << "e₁ + "
-     << q.coefficient(2) << "e₂ + "
-     << q.coefficient(3) << "e₃ + "
-     << q.coefficient(4) << "e₄ + "
-     << q.coefficient(5) << "e₅ + "
-     << q.coefficient(6) << "e₆ + "
-     << q.coefficient(7) << "e₇";
+  os << q.term(0)
+     << q.term(1)
+     << q.term(2)
+     << q.term(3)
+     << q.term(4)
+     << q.term(5)
+     << q.term(6)
+     << q.term(7);
   return os;
 };
 
